@@ -1,12 +1,9 @@
 class UsersController < ApplicationController
 require 'pry'
   get '/signup' do
-  #  binding.pry
     if logged_in?
-
       redirect "/tweets"
     else
-
       erb :'users/signup'
     end
   end
