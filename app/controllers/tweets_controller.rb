@@ -4,7 +4,7 @@ class TweetsController < ApplicationController
     if logged_in?
       @tweets = Tweet.all
       @user = current_user
-      erb :"/tweets/show"
+      erb :"/tweets/index"
     else
        redirect "/login"
     end
