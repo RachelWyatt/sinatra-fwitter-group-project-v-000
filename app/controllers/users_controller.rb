@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 require 'pry'
   get '/signup' do
-    raise params.inspect
+  #  binding.pry
     if logged_in?
 
       redirect "/tweets"
     else
-      raise "Failure"
+
       erb :'users/signup'
     end
   end
@@ -15,7 +15,9 @@ require 'pry'
     @user = User.new(username: params[:username], password: params[:password], email: params[:email])
 
     if @user.save
+    #  binding.pry
       session[:user_id] = @user.id
+    #  binding.pry
       redirect '/tweets'
     else
       redirect '/signup'
