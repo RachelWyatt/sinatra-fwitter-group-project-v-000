@@ -13,11 +13,8 @@ require 'pry'
 
   post '/signup' do
     @user = User.new(username: params[:username], password: params[:password], email: params[:email])
-
     if @user.save
-    #  binding.pry
       session[:user_id] = @user.id
-    #  binding.pry
       redirect '/tweets'
     else
       redirect '/signup'
